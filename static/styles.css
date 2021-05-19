@@ -1,4 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap');
 body{
     background-color: #07020D;
     color: white;
+    font-family: 'KoHo', sans-serif;
 }
+.primary{
+    background-color: #5DB7DE;
+}
+
+.dialog {
+    padding: 2rem;
+    margin: 3rem;
+    background-color: transparent;
+  }
+  
+  .dialog > .box {
+    padding: 0.6rem;
+    border: none;
+    border-bottom: 0.2rem solid rgba(0, 0, 0, 0.534);
+    background-color: rgba(0, 0, 0, 0.158);
+    outline: none;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    font-size: 2rem;
+  }
+  
+  .box::placeholder {
+    color: rgba(0, 0, 0, 0.582);
+  }
+  
+  .dialog > .box:focus {
+    border-bottom: 0.2rem solid #9799ca;
+    background-color: #9799ca41;
+  }
+  
+  .dialog > .short {
+    padding: 0.3rem;
+    margin-left: 2rem;
+    font-size: 1.8rem;
+    background-color: #07020D;
+    color: white;
+    
+    outline: 0.6rem solid #07020D;
+    cursor: pointer;
+  }
+  
+  .dialog > .short:hover {
+    transition: all 0.05s ease-in;
+    border-color: #588b8b;
+  }
+  
+  .dialog > .short:active {
+    box-shadow: 0px 0px 2rem rgba(0, 0, 0, 0.178);
+  }
+  
+  
