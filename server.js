@@ -8,8 +8,32 @@ app.use(bp.json());
 
 app.use(express.static("static"));
 
-
-
+app.get("/:id",(req,res)=>{
+    var data={};
+    data=JSON.parse(fs.readFileSync("data.json"));
+    if(data.hasOwnProperty(req.params.id))
+    {
+        res.send(`
+        <html>
+        <body>
+            <script>
+                window.location.href= "${links[req.params.id]}" ;
+            </script>
+        </body>global.
+    </html>
+        `);
+    }
+    else 
+    {
+        res.send(`
+        <html>
+        <body>
+            <h1>404 error!<h1>
+        </body>global.
+    </html>
+        `);
+    }
+});
 app.post("/short",(req,res)=>{
     let key=md4(req.body.url).toString();
     let data=JSON.parse(fs.readFileSync("data.json"));
