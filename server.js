@@ -3,6 +3,7 @@ var app=express();
 var bp=require('body-parser');
 var md4=require('md5');
 var fs=require('fs');
+var shortid=require('shortid');
 const PORT=2104
 app.use(bp.json());
 
@@ -35,7 +36,8 @@ app.get("/:id",(req,res)=>{
     }
 });
 app.post("/short",(req,res)=>{
-    let key=md4(req.body.url).toString();
+    
+    let key=shortid.generate();
     let data=JSON.parse(fs.readFileSync("data.json"));
     data[key]=req.body.url;
     fs.writeFileSync("data.json",JSON.stringify(data));

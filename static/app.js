@@ -12,6 +12,7 @@ function pass(url)
     })
     .then((response) => response.json()).then((data)=>{
         let url=window.location.href+data["result"];
+        document.getElementById('output').innerHTML=url;
         window.alert(url);
     });
 }
