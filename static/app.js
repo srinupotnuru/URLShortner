@@ -1,4 +1,18 @@
-function copyToClipboard(text) {
+var config = {
+  
+  apiKey: "AIzaSyCxTHYADPh8vbN4cYw9YMB4tvvi_d7VXmg",
+  authDomain: "codelabs-4373c.firebaseapp.com",
+  databaseURL: "https://codelabs-4373c-default-rtdb.firebaseio.com",
+  projectId: "codelabs-4373c",
+  storageBucket: "codelabs-4373c.appspot.com",
+  messagingSenderId: "835368477952",
+  appId: "1:835368477952:web:f0a339b55b5dc460bdffe5",
+  measurementId: "G-9KHLDL9H2H"
+};
+firebase.initializeApp(config);
+
+
+function copyToClipboard(text) {  
     window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
   }
 function pass(url)
@@ -14,6 +28,13 @@ function pass(url)
         let url=window.location.href+data["result"];
         document.getElementById('output').innerHTML=url;
         window.alert(url);
+
+        const ref_obj = firebase.database().ref('paste/' + data["result"]);
+        ref_obj.set({
+        "url":url,
+      }).then(function () {
+         console.log("push done");
+      });
     });
 }
 function shortit()
