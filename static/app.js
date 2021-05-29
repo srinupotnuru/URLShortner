@@ -27,8 +27,7 @@ function pass(url)
     .then((response) => response.json()).then((data)=>{
         let url=window.location.href+data["result"];
         document.getElementById('output').innerHTML=url;
-        window.alert(url);
-
+        copyToClipboard(url);
         const ref_obj = firebase.database().ref('paste/' + data["result"]);
         ref_obj.set({
         "url":url,

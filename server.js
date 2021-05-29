@@ -4,7 +4,7 @@ var bp=require('body-parser');
 var md4=require('md5');
 var fs=require('fs');
 var shortid=require('shortid');  
-const PORT=2104
+const PORT= process.env.PORT || 2104
 app.use(bp.json());
 
 app.use(express.static("static"));
